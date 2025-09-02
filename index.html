@@ -1,14 +1,1365 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallstreet FX - Premium Forex Signals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c0f1d, #1a2333, #0c0f1d);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Enhanced Header Styles */
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(12, 15, 29, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            color: #f8f9fa;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span:first-child {
+            color: #00bf63;
+        }
+        
+        .logo span:last-child {
+            color: #ffcc00;
+            margin-left: 5px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+            justify-content: center;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 15px;
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            color: #00bf63;
+            background: rgba(0, 191, 99, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 191, 99, 0.2);
+        }
+        
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: 0.5s;
+        }
+        
+        nav ul li a:hover::before {
+            left: 100%;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 120px 0 80px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 400"><rect fill="%230c0f1d" width="800" height="400"/><path fill="%23151a2d" fill-opacity="0.3" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,261.3C672,256,768,224,864,224C960,224,1056,256,1152,245.3C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: 100% auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #00bf63, #ffcc00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #e9ecef;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button.primary {
+            background: #00bf63;
+            color: white;
+        }
+        
+        .cta-button.secondary {
+            background: #ffcc00;
+            color: #000;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 191, 99, 0.4);
+        }
+        
+        .members-count {
+            margin-top: 40px;
+            font-size: 1.2rem;
+            color: #adb5bd;
+        }
+        
+        .members-count span {
+            color: #ffcc00;
+            font-weight: 700;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #00bf63;
+        }
+        
+        .section-title p {
+            color: #adb5bd;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        /* Signal Cards Slider - Smaller Square Cards */
+        .signals-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .signals-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .signal-card {
+            flex: 0 0 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 0 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 280px;
+        }
+        
+        .signal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(0, 191, 99, 0.3);
+        }
+        
+        .signal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .signal-pair {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffcc00;
+        }
+        
+        .signal-type {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        
+        .signal-type.buy {
+            background: rgba(0, 191, 99, 0.2);
+            color: #00bf63;
+        }
+        
+        .signal-type.sell {
+            background: rgba(255, 71, 87, 0.2);
+            color: #ff4757;
+        }
+        
+        .signal-type.loss {
+            background: rgba(255, 71, 87, 0.2);
+            color: #ff4757;
+        }
+        
+        .signal-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        
+        .signal-detail {
+            margin-bottom: 8px;
+        }
+        
+        .signal-detail .label {
+            font-size: 0.8rem;
+            color: #adb5bd;
+            margin-bottom: 3px;
+        }
+        
+        .signal-detail .value {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .signal-profit {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        
+        .signal-profit.win {
+            color: #00bf63;
+        }
+        
+        .signal-profit.loss {
+            color: #ff4757;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 8px;
+        }
+        
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .slider-dot.active {
+            background: #00bf63;
+        }
+        
+        .check-performance {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        /* Enhanced Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+        }
+        
+        .product-card.mentorship::before {
+            background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+        }
+        
+        .product-card.gold::before {
+            background: linear-gradient(90deg, #ffd700, #ffec8b);
+        }
+        
+        .product-card.vip::before {
+            background: linear-gradient(90deg, #00bf63, #00a85c);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .product-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            display: inline-block;
+            height: 100px;
+            width: 100px;
+            line-height: 100px;
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .product-card.mentorship .product-icon {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: #d35677;
+            box-shadow: 0 5px 15px rgba(255, 154, 158, 0.3);
+        }
+        
+        .product-card.gold .product-icon {
+            background: linear-gradient(135deg, #ffd700, #ffec8b);
+            color: #b8860b;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .product-card.vip .product-icon {
+            background: linear-gradient(135deg, #00bf63, #00a85c);
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 191, 99, 0.3);
+        }
+        
+        .product-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #ffcc00;
+        }
+        
+        .product-card p {
+            color: #ced4da;
+            margin-bottom: 25px;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: scale(1.05);
+        }
+        
+        .whatsapp-btn i {
+            margin-right: 8px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+            color: #adb5bd;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .footer-logo span:first-child {
+            color: #00bf63;
+        }
+        
+        .footer-logo span:last-child {
+            color: #ffcc00;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #00bf63;
+        }
+        
+        .disclaimer {
+            max-width: 800px;
+            margin: 20px auto 0;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        /* Performance Section Styles */
+        .performance-section {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 40px;
+            text-align: center;
+            display: none;
+        }
+        
+        .performance-section.active {
+            display: block;
+        }
+        
+        .performance-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffcc00;
+        }
+        
+        .stat-label {
+            color: #adb5bd;
+            font-size: 1rem;
+        }
+        
+        /* Performance Table */
+        .performance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .performance-table th, .performance-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .performance-table th {
+            background: rgba(0, 191, 99, 0.1);
+            color: #00bf63;
+            font-weight: 600;
+        }
+        
+        .performance-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .performance-table .win {
+            color: #00bf63;
+        }
+        
+        .performance-table .loss {
+            color: #ff4757;
+        }
+        
+        /* Animated Broker Button */
+        .broker-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ff9e6b);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            margin-top: 30px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            }
+        }
+        
+        .broker-button:hover {
+            animation: none;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+        }
+        
+        /* Reviews Section - Smaller Square Cards */
+        .reviews-section {
+            margin-top: 80px;
+            text-align: center;
+            display: none;
+        }
+        
+        .reviews-section.active {
+            display: block;
+        }
+        
+        .reviews-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            height: 320px;
+        }
+        
+        .reviews-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+        
+        .review-card {
+            flex: 0 0 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 0 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 300px;
+        }
+        
+        .review-content {
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            line-height: 1.6;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+        
+        .reviewer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #00bf63;
+        }
+        
+        .reviewer-info {
+            text-align: left;
+        }
+        
+        .reviewer-name {
+            font-weight: 600;
+            color: #ffcc00;
+            font-size: 0.9rem;
+        }
+        
+        .reviewer-title {
+            font-size: 0.8rem;
+            color: #adb5bd;
+        }
+        
+        .stars {
+            color: #ffcc00;
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+        
+        .review-slider-nav {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .review-slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .review-slider-dot.active {
+            background: #00bf63;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 0;
+            }
+            
+            .header-top {
+                flex-direction: column;
+                margin-bottom: 10px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            nav ul li a {
+                display: block;
+                text-align: center;
+                padding: 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .signal-card {
+                height: 300px;
+            }
+            
+            .signal-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .performance-table {
+                font-size: 0.8rem;
+            }
+            
+            .performance-table th, .performance-table td {
+                padding: 10px 5px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .performance-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .review-card {
+                padding: 20px;
+                height: 320px;
+            }
+            
+            .reviewer {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .reviewer-info {
+                text-align: center;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .signal-card {
+                height: 300px;
+            }
+            
+            .performance-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <div class="logo">Wallstreet <span>FX</span></div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#signals">Free Signals</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#performance" id="performanceNav">Performance</a></li>
+                    <li><a href="#reviews" id="reviewsNav">Reviews</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section class="hero" id="home">
+            <h1>Unlock a Lifetime of Trading Growth and Success</h1>
+            <p>Thousands trust Wallstreet FX for enhanced forex trading profits worldwide.</p>
+            
+            <div class="cta-buttons">
+                <a href="https://whatsapp.com/channel/0029VbAzUwrAe5VlKjbPG304" class="cta-button secondary">
+                    <i class="fab fa-whatsapp"></i> Test Free Signals
+                </a>
+                <a href="https://wa.me/255743731512?text=Hello!%20I'm%20interested%20in%20your%20VIP%20Signals%20service." class="cta-button primary">
+                    <i class="fas fa-crown"></i> Get VIP Signals
+                </a>
+            </div>
+            
+            <div class="members-count">
+                Join <span>50,000+</span> Members Benefitting from Our Free Signals
+            </div>
+        </section>
+        
+        <section id="signals">
+            <div class="section-title">
+                <h2>Explore Our Latest Free Signal Results</h2>
+                <p>Real trading results from our expert analysis</p>
+            </div>
+            
+            <div class="signals-slider">
+                <div class="signals-container" id="signalsContainer">
+                    <!-- Signal Card 1 - Win -->
+                    <div class="signal-card">
+                        <div class="signal-header">
+                            <div class="signal-pair">XAUUSD</div>
+                            <div class="signal-type buy">BUY</div>
+                        </div>
+                        <div class="signal-details">
+                            <div class="signal-detail">
+                                <div class="label">Profit</div>
+                                <div class="value" style="color: #00bf63;">185 pips</div>
+                            </div>
+                            <div class="signal-detail">
+                                <div class="label">S/L</div>
+                                <div class="value">3403.0</div>
+                            </div>
+                            <div class="signal-detail">
+                                <div class="label">T/P</div>
+                                <div class="value">3435.0</div>
+                            </div>
+                            <div class="signal-detail">
+                                <div class="label">Date</div>
+                                <div class="value">22 Aug 2025</div>
+                            </div>
+                        </div>
+                        <div class="signal-profit win">
+                            +$1,850 Profit
+                        </div>
+                    </div>
+                    
+                    <!-- Signal Card 2 - Win -->
+                    <div class="signal-card">
+                        <div class="signal-header">
+                            <div class="signal-pair">BTCUSD</div>
+                            <div class="signal-type buy">BUY</div>
+                        </div>
+                        <div class="signal-details">
+                            <div class="signal-detail">
+                                <div class="label">Profit</div>
+                                <div class="value" style="color: #00bf63;">320 pips</div>
+                            </div>
+                            <div class="signal-detail">
+                                <div class="label">S/L</div>
+                                <div class="value">54800</div>
+                            </div>
+                            <div class="signal-detail">
+                                <div class="label">T/P</div>
+                                <div class="value">55200</div>
+                            </div>
+                            <div class="signal-detail">
+                                <div class="label">Date</div>
+                                <div class="value">18 Aug 2025</div>
+                            </div>
+                        </div>
+                        <div class="signal-profit win">
+                            +$3,200 Profit
+                        </div>
+                    </div>
+                    
+                    <!-- Signal Card 3 - Loss -->
+                    <div class="signal-card">
+                        <div class="signal-header">
+                            <div class="signal-pair">XAUUSD</div>
+                            <div class="signal-type loss">LOSS</div>
+                        </div>
+                        <div class="signal-details">
+                            <div class="signal-detail">
+                                <div class="label">Loss</div>
+                                <div class="value" style="color: #ff4757;">-45 pips</div>
+                            </div>
+                            <div class="signal-detail">
+                                <div class="label">S/L</div>
+                                <div class="value">3386.10</div>
+                            </div>
+                            <div class="signal-detail">
+                                <div class="label">T/P</div>
+                                <div class="value">3354.10</div>
+                            </div>
+                            <div class="signal-detail">
+                                <div class="label">Date</div>
+                                <div class="value">15 Aug 2025</div>
+                            </div>
+                        </div>
+                        <div class="signal-profit loss">
+                            -$450 Loss
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-nav" id="signalsNav">
+                    <!-- Dots will be generated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="check-performance">
+                <a href="#performance" class="cta-button primary" id="checkPerformanceBtn">Check Performance</a>
+            </div>
+        </section>
+        
+        <section id="products">
+            <div class="section-title">
+                <h2>Our Products and Solutions</h2>
+                <p>Boost your trading profits and streamline your financial operations with Wallstreet FX</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card mentorship">
+                    <div class="product-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Lifetime Mentorship</h3>
+                    <p>Get personalized one-on-one training, continuous support, and access to exclusive educational resources for lifetime trading success.</p>
+                    <a href="https://wa.me/255743731512?text=Hello!%20I'm%20interested%20in%20your%20Lifetime%20Mentorship%20program." class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Request Now
+                    </a>
+                </div>
+                
+                <div class="product-card gold">
+                    <div class="product-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Gold Signals</h3>
+                    <p>Confidently trade gold with our precise Gold Signals, guiding you towards profitable market opportunities.</p>
+                    <a href="https://wa.me/255743731512?text=Hello!%20I'm%20interested%20in%20your%20Gold%20Signals%20service." class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Request Now
+                    </a>
+                </div>
+                
+                <div class="product-card vip">
+                    <div class="product-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>VIP Signals</h3>
+                    <p>Get exclusive access to our premium signals with higher accuracy and detailed analysis for maximum profits.</p>
+                    <a href="https://wa.me/255743731512?text=Hello!%20I'm%20interested%20in%20your%20VIP%20Signals%20service." class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Get VIP Access
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="performance" class="performance-section">
+            <div class="section-title">
+                <h2>August 2025 Performance Results</h2>
+                <p>Real performance data from our trading signals</p>
+            </div>
+            
+            <div class="performance-section active">
+                <h3>Monthly Performance Overview</h3>
+                
+                <div class="performance-stats">
+                    <div class="stat-card">
+                        <div class="stat-value">87%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">1,425</div>
+                        <div class="stat-label">Total Pips</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">94%</div>
+                        <div class="stat-label">Win Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">32</div>
+                        <div class="stat-label">Signals</div>
+                    </div>
+                </div>
+                
+                <h3>Recent Signal Performance</h3>
+                <table class="performance-table">
+                    <thead>
+                        <tr>
+                            <th>Pair</th>
+                            <th>Type</th>
+                            <th>Result</th>
+                            <th>Pips</th>
+                            <th>Win Rate</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>XAUUSD</td>
+                            <td>BUY</td>
+                            <td class="win">Win</td>
+                            <td class="win">+185</td>
+                            <td>92%</td>
+                            <td>22 Aug 2025</td>
+                        </tr>
+                        <tr>
+                            <td>BTCUSD</td>
+                            <td>BUY</td>
+                            <td class="win">Win</td>
+                            <td class="win">+320</td>
+                            <td>88%</td>
+                            <td>18 Aug 2025</td>
+                        </tr>
+                        <tr>
+                            <td>XAUUSD</td>
+                            <td>SELL</td>
+                            <td class="loss">Loss</td>
+                            <td class="loss">-45</td>
+                            <td>92%</td>
+                            <td>15 Aug 2025</td>
+                        </tr>
+                        <tr>
+                            <td>BTCUSD</td>
+                            <td>SELL</td>
+                            <td class="win">Win</td>
+                            <td class="win">+210</td>
+                            <td>85%</td>
+                            <td>12 Aug 2025</td>
+                        </tr>
+                        <tr>
+                            <td>XAUUSD</td>
+                            <td>BUY</td>
+                            <td class="win">Win</td>
+                            <td class="win">+135</td>
+                            <td>92%</td>
+                            <td>08 Aug 2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p>Our signals demonstrated exceptional performance in August 2025, with consistent profits across all major pairs.</p>
+                
+                <a href="https://wa.me/255743731512?text=Hello!%20I%20want%20to%20learn%20more%20about%20your%20performance%20and%20services." class="cta-button primary">
+                    <i class="fab fa-whatsapp"></i> Get Detailed Report
+                </a>
+                
+                <div style="margin-top: 40px;">
+                    <a href="https://www.icmarkets.com" class="broker-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Recommended Broker
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="reviews" class="reviews-section">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Join thousands of satisfied traders who have transformed their trading with our signals</p>
+            </div>
+            
+            <div class="reviews-slider">
+                <div class="reviews-container" id="reviewsContainer">
+                    <!-- Review 1 -->
+                    <div class="review-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-content">"Wallstreet FX signals have completely transformed my trading. I've seen a 78% increase in profits since I started following their recommendations. The gold signals are especially accurate!"</p>
+                        <div class="reviewer">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Wilson" class="reviewer-avatar">
+                            <div class="reviewer-info">
+                                <div class="reviewer-name">James Wilson</div>
+                                <div class="reviewer-title">Professional Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Review 2 -->
+                    <div class="review-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-content">"The mentorship program is worth every penny. I went from losing money to consistently profitable in just 3 months. The one-on-one sessions are incredibly valuable."</p>
+                        <div class="reviewer">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="reviewer-avatar">
+                            <div class="reviewer-info">
+                                <div class="reviewer-name">Sarah Johnson</div>
+                                <div class="reviewer-title">Beginner Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Review 3 -->
+                    <div class="review-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="review-content">"I've tried many signal services, but Wallstreet FX is by far the most reliable. Their analysis is thorough and their customer support is exceptional."</p>
+                        <div class="reviewer">
+                            <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Michael Chen" class="reviewer-avatar">
+                            <div class="reviewer-info">
+                                <div class="reviewer-name">Michael Chen</div>
+                                <div class="reviewer-title">Forex Investor</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-slider-nav" id="reviewsNav">
+                    <!-- Dots will be generated by JavaScript -->
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footer-logo">Wallstreet <span>FX</span></div>
+            <p>Professional Forex Signals & Trading Education</p>
+            
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#signals">Free Signals</a>
+                <a href="#products">Products</a>
+                <a href="#performance">Performance</a>
+                <a href="#reviews">Reviews</a>
+                <a href="https://wa.me/255743731512?text=Hello!%20I%20have%20a%20question%20about%20your%20services.">Contact Us</a>
+            </div>
+            
+            <p>wallstreetfx.com</p>
+            
+            <div class="disclaimer">
+                <p>Risk Disclaimer: Trading financial instruments involves risk. Please ensure you understand the risks involved and seek independent advice if necessary. Past performance is not indicative of future results.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('show');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a, .footer-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Hide mobile menu after click
+                    document.getElementById('navMenu').classList.remove('show');
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    // Show the target section if it's performance or reviews
+                    if (targetId === '#performance') {
+                        showPerformanceSection();
+                    } else if (targetId === '#reviews') {
+                        showReviewsSection();
+                    }
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Show performance section
+        function showPerformanceSection() {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('performance').classList.add('active');
+            document.querySelector('nav a[href="#performance"]').classList.add('active');
+        }
+        
+        // Show reviews section
+        function showReviewsSection() {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('reviews').classList.add('active');
+            document.querySelector('nav a[href="#reviews"]').classList.add('active');
+        }
+        
+        // Check Performance button
+        document.getElementById('checkPerformanceBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            showPerformanceSection();
+            window.scrollTo({
+                top: document.getElementById('performance').offsetTop - 20,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Performance navigation
+        document.getElementById('performanceNav').addEventListener('click', function(e) {
+            e.preventDefault();
+            showPerformanceSection();
+            window.scrollTo({
+                top: document.getElementById('performance').offsetTop - 20,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Reviews navigation
+        document.getElementById('reviewsNav').addEventListener('click', function(e) {
+            e.preventDefault();
+            showReviewsSection();
+            window.scrollTo({
+                top: document.getElementById('reviews').offsetTop - 20,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Signals slider functionality
+        let currentSignalSlide = 0;
+        const signalSlides = document.querySelectorAll('.signal-card');
+        const signalsNav = document.getElementById('signalsNav');
+        const signalsContainer = document.getElementById('signalsContainer');
+        
+        // Create slider dots for signals
+        signalSlides.forEach((slide, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'slider-dot';
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                goToSignalSlide(index);
+            });
+            signalsNav.appendChild(dot);
+        });
+        
+        function goToSignalSlide(index) {
+            currentSignalSlide = index;
+            signalsContainer.style.transform = `translateX(-${currentSignalSlide * 100}%)`;
+            
+            // Update active dot
+            document.querySelectorAll('.slider-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSignalSlide);
+            });
+        }
+        
+        // Auto-advance signal slides
+        setInterval(() => {
+            currentSignalSlide = (currentSignalSlide + 1) % signalSlides.length;
+            goToSignalSlide(currentSignalSlide);
+        }, 4000);
+        
+        // Reviews slider functionality
+        let currentReviewSlide = 0;
+        const reviewSlides = document.querySelectorAll('.review-card');
+        const reviewsNav = document.getElementById('reviewsNav');
+        const reviewsContainer = document.getElementById('reviewsContainer');
+        
+        // Create slider dots for reviews
+        reviewSlides.forEach((slide, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'review-slider-dot';
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                goToReviewSlide(index);
+            });
+            reviewsNav.appendChild(dot);
+        });
+        
+        function goToReviewSlide(index) {
+            currentReviewSlide = index;
+            reviewsContainer.style.transform = `translateX(-${currentReviewSlide * 100}%)`;
+            
+            // Update active dot
+            document.querySelectorAll('.review-slider-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentReviewSlide);
+            });
+        }
+        
+        // Auto-advance review slides
+        setInterval(() => {
+            currentReviewSlide = (currentReviewSlide + 1) % reviewSlides.length;
+            goToReviewSlide(currentReviewSlide);
+        }, 5000);
+        
+        // Make all buttons active with click effects
+        document.querySelectorAll('a').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+    </script>
 </body>
 </html>
