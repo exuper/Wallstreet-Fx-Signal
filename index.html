@@ -480,7 +480,11 @@
             box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
         }
         
-        /* Reviews Section - Fixed Slider Style */
+        /* Reviews Section - Fixed Independent Slider */
+        .reviews-section {
+            padding-top: 30px;
+        }
+        
         .reviews-slider-container {
             position: relative;
             max-width: 1000px;
@@ -492,20 +496,31 @@
         .reviews-track {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+        
+        .review-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            box-sizing: border-box;
         }
         
         .review-card {
-            flex: 0 0 100%;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             padding: 30px;
-            margin: 0 10px;
+            width: 100%;
+            max-width: 800px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             min-height: 320px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
         }
         
         .review-card::before {
@@ -521,13 +536,15 @@
         .review-content {
             font-style: italic;
             margin-bottom: 20px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             line-height: 1.7;
+            text-align: center;
         }
         
         .reviewer {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 15px;
             margin-top: auto;
         }
@@ -559,6 +576,7 @@
             color: #ffcc00;
             margin: 15px 0;
             font-size: 1.1rem;
+            text-align: center;
         }
         
         .review-nav {
@@ -658,7 +676,7 @@
             
             .review-card {
                 padding: 20px;
-                min-height: 350px;
+                min-height: 380px;
             }
             
             .reviewer {
@@ -889,7 +907,7 @@
             </div>
         </section>
         
-        <section id="reviews" style="padding-top: 30px;">
+        <section id="reviews" class="reviews-section">
             <div class="section-title">
                 <h2>Client Success Stories</h2>
                 <p>Real results from traders who use our signals and mentorship</p>
@@ -898,61 +916,69 @@
             <div class="reviews-slider-container">
                 <div class="reviews-track" id="reviewsTrack">
                     <!-- Review 1 -->
-                    <div class="review-card">
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="review-content">"I started with just $500 and following Wallstreet FX signals, I've grown my account significantly in just 5 months. Their gold signals are incredibly accurate!"</p>
-                        <div class="reviewer">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Wilson" class="reviewer-avatar">
-                            <div class="reviewer-info">
-                                <div class="reviewer-name">James Wilson</div>
-                                <div class="reviewer-title">XAUUSD Specialist</div>
+                    <div class="review-slide">
+                        <div class="review-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-content">"I started with just $500 and following Wallstreet FX signals, I've grown my account significantly in just 5 months. Their gold signals are incredibly accurate and have helped me achieve consistent returns month after month."</p>
+                            <div class="reviewer">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Wilson" class="reviewer-avatar">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">James Wilson</div>
+                                    <div class="reviewer-title">XAUUSD Specialist</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Review 2 -->
-                    <div class="review-card">
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="review-content">"The mentorship program transformed my trading. I went from inconsistent results to consistent profits. The risk management strategies were a game-changer for me."</p>
-                        <div class="reviewer">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="reviewer-avatar">
-                            <div class="reviewer-info">
-                                <div class="reviewer-name">Sarah Johnson</div>
-                                <div class="reviewer-title">Mentorship Graduate</div>
+                    <div class="review-slide">
+                        <div class="review-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-content">"The mentorship program transformed my trading. I went from inconsistent results to consistent profits in just 3 months. The risk management strategies were a game-changer for me and the one-on-one sessions are incredibly valuable."</p>
+                            <div class="reviewer">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="reviewer-avatar">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Sarah Johnson</div>
+                                    <div class="reviewer-title">Mentorship Graduate</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Review 3 -->
-                    <div class="review-card">
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <p class="review-content">"I've tried many signal services, but Wallstreet FX is by far the most reliable. Their analysis is thorough and their customer support is exceptional."</p>
-                        <div class="reviewer">
-                            <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Michael Chen" class="reviewer-avatar">
-                            <div class="reviewer-info">
-                                <div class="reviewer-name">Michael Chen</div>
-                                <div class="reviewer-title">Forex Investor</div>
+                    <div class="review-slide">
+                        <div class="review-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="review-content">"I've tried many signal services, but Wallstreet FX is by far the most reliable. Their analysis is thorough and their customer support is exceptional. The VIP signals have consistently provided me with profitable opportunities."</p>
+                            <div class="reviewer">
+                                <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Michael Chen" class="reviewer-avatar">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Michael Chen</div>
+                                    <div class="reviewer-title">Forex Investor</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Review 4 -->
-                    <div class="review-card">
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="review-content">"As a full-time employee, I don't have much time to analyze the markets. Wallstreet FX signals have been a game-changer for me. I simply follow their recommendations."</p>
-                        <div class="reviewer">
-                            <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Emma Davis" class="reviewer-avatar">
-                            <div class="reviewer-info">
-                                <div class="reviewer-name">Emma Davis</div>
-                                <div class="reviewer-title">Part-time Trader</div>
+                    <div class="review-slide">
+                        <div class="review-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-content">"As a full-time employee, I don't have much time to analyze the markets. Wallstreet FX signals have been a game-changer for me. I simply follow their recommendations and have seen my account grow steadily over the past 6 months."</p>
+                            <div class="reviewer">
+                                <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Emma Davis" class="reviewer-avatar">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-name">Emma Davis</div>
+                                    <div class="reviewer-title">Part-time Trader</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1012,7 +1038,7 @@
             
             function goToPerformanceSlide(index) {
                 currentPerformanceSlide = index;
-                performanceContainer.style.transform = `translateX(-${currentPerformanceSlide * 90}%)`;
+                performanceContainer.style.transform = `translateX(-${currentPerformanceSlide * 100}%)`;
                 
                 // Update active dot
                 document.querySelectorAll('#performanceNav .slider-dot').forEach((dot, i) => {
@@ -1022,15 +1048,15 @@
             
             // Auto-advance performance slides
             setInterval(() => {
-                currentPerformanceSlide = (currentPerformanceSlide + 2) % totalPerformanceSlides;
+                currentPerformanceSlide = (currentPerformanceSlide + 1) % totalPerformanceSlides;
                 goToPerformanceSlide(currentPerformanceSlide);
             }, 4000);
             
             // Reviews slider functionality
             const reviewsTrack = document.getElementById('reviewsTrack');
             const reviewNav = document.getElementById('reviewNav');
-            const reviewCards = document.querySelectorAll('.review-card');
-            const totalReviews = reviewCards.length;
+            const reviewSlides = document.querySelectorAll('.review-slide');
+            const totalReviews = reviewSlides.length;
             let currentReview = 0;
             
             // Create navigation dots for reviews
@@ -1047,7 +1073,7 @@
             
             function goToReview(index) {
                 currentReview = index;
-                reviewsTrack.style.transform = `translateX(-${currentReview * 90}%)`;
+                reviewsTrack.style.transform = `translateX(-${currentReview * 100}%)`;
                 
                 // Update active dot
                 document.querySelectorAll('.review-dot').forEach((dot, i) => {
@@ -1059,9 +1085,9 @@
                 });
             }
             
-            // Auto-advance reviews with longer delay (15 seconds)
+            // Auto-advance reviews with longer delay (5 seconds)
             setInterval(() => {
-                currentReview = (currentReview + 2) % totalReviews;
+                currentReview = (currentReview + 1) % totalReviews;
                 goToReview(currentReview);
             }, 5000);
             
